@@ -1,50 +1,23 @@
-# test_notification
 
-flutter local notification
+---
 
+### Explanation:
 
-setup
+1. **Android Permissions**:
+   - Permissions like `RECEIVE_BOOT_COMPLETED`, `SCHEDULE_EXACT_ALARM`, and `USE_EXACT_ALARM` are necessary for scheduling and receiving notifications, especially after a device reboot or during exact alarm triggers.
 
+2. **Receivers**:
+   - The `ScheduledNotificationReceiver` and `ScheduledNotificationBootReceiver` help handle notifications on specific events like app updates and system reboots.
+   
+3. **Debug and Release Modes**:
+   - The instructions are clearly split into **debug** and **release** setups.
+   - For **debug mode**, the setup is typically ready once the permissions and receivers are added to the `AndroidManifest.xml`.
+   - For **release mode**, you'll need to include the Proguard configuration and Keep XML to ensure that the required classes aren't stripped during minification or obfuscation.
 
-# first mainfest file
+4. **External Links**:
+   - The Proguard configuration file and Keep XML file are linked, and you need to download and add them to the appropriate directories in your project.
 
+5. **Final Steps**:
+   - After following all the steps, you should be able to build and test the app in both debug and release modes with working scheduled notifications.
 
-
-## Android Permissions and Receivers for Scheduled Notifications
-
-To ensure that your Flutter app properly handles scheduled notifications and responds to events like device boot or app replacement, you need to add specific permissions and receivers in the `AndroidManifest.xml`.
-
-### Permissions
-
-Add the following permissions to your `AndroidManifest.xml` to allow the app to receive boot events and set exact alarms:
-
-```xml
-<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
-<uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM"/>
-<uses-permission android:name="android.permission.USE_EXACT_ALARM"/>
-
- <receiver android:exported="false" android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationReceiver" />
-     <receiver android:exported="false" android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationBootReceiver">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
-                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
-                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
-                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON"/>
-            </intent-filter>
-</receiver>
-
-### this work for debug mode
-
-
-# to work in release mode
-
-# steps
-
-adding this file https://github.com/google/gson/blob/main/examples/android-proguard-example/proguard.cfg  to android/app
-
-adding this file https://github.com/MaikuB/flutter_local_notifications/blob/master/flutter_local_notifications/example/android/app/src/main/res/raw/keep.xml
-
-
-# greate it work 
-
-
+Let me know if you need any further changes!
