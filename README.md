@@ -8,9 +8,25 @@ setup
 
 # first mainfest file
 
-// <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
-//  <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
-//    <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
+
+
+## Android Permissions and Receivers for Scheduled Notifications
+
+To ensure that your Flutter app properly handles scheduled notifications and responds to events like device boot or app replacement, you need to add specific permissions and receivers in the `AndroidManifest.xml`.
+
+### Permissions
+
+Add the following permissions to your `AndroidManifest.xml` to allow the app to receive boot events and set exact alarms:
+
+```xml
+<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+<uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM"/>
+<uses-permission android:name="android.permission.USE_EXACT_ALARM"/>
+
+
+ <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+  <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
 
 
  <receiver android:exported="false" android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationReceiver" />
