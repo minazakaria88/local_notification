@@ -31,9 +31,9 @@ Add the following permissions to your `AndroidManifest.xml` to allow the app to 
                 <action android:name="android.intent.action.QUICKBOOT_POWERON" />
                 <action android:name="com.htc.intent.action.QUICKBOOT_POWERON"/>
             </intent-filter>
-        </receiver>
+</receiver>
 
-# this work for debug mode
+### this work for debug mode
 
 
 # to work in release mode
