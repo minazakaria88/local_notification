@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:test_notification/widget/my_text_form.dart';
 
@@ -80,11 +82,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   );
                   titleController.clear();
                   bodyController.clear();
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                      content: Text('Notification Scheduled'),
-                    ),
-                  );
+                  showSnackBar();
                 }
               },
               child: const Text(
@@ -93,6 +91,15 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
           );
+  }
+
+
+  showSnackBar() {
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text('Notification Scheduled'),
+      ),
+    );
   }
 
 
